@@ -1,0 +1,86 @@
+From 7307bec5719adf03f2e6c371ec3ba36e8db202d4 Mon Sep 17 00:00:00 2001
+From: Ben Holley <benolee@gmail.com>
+Date: Tue, 5 Mar 2024 12:12:03 -0600
+Subject: [PATCH] add optional ram poweron state file
+
+---
+ Core/NES/NesPpu.cpp         | 12 ++++++++++++
+ Core/Shared/EmuSettings.cpp |  9 +++++++++
+ Core/Shared/SettingTypes.h  |  4 +++-
+ 3 files changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/Core/NES/NesPpu.cpp b/Core/NES/NesPpu.cpp
+index 507e47b9..3534a474 100644
+--- a/Core/NES/NesPpu.cpp
++++ b/Core/NES/NesPpu.cpp
+@@ -48,6 +48,18 @@ template<class T> NesPpu<T>::NesPpu(NesConsole* console)
+ 		for(int i = 0; i < 0x20; i++) {
+ 			_paletteRam[i] &= 0x3F;
+ 		}
++	} else if (_emu->GetSettings()->GetNesConfig().RamPowerOnState == RamState::Provided) {
++		VirtualFile file = VirtualFile::VirtualFile(_emu->GetSettings()->GetNesConfig().RamPowerOnStateFilename);
++		if(file.IsValid()) {
++			_console->InitializeRam(_paletteRam, 0x20);
++			file.Read(_paletteRam, 0x20);
++		} else {
++			constexpr uint8_t paletteRamBootValues[0x20] { 
++				0x09, 0x01, 0x00, 0x01, 0x00, 0x02, 0x02, 0x0D, 0x08, 0x10, 0x08, 0x24, 0x00, 0x00, 0x04, 0x2C,
++				0x09, 0x01, 0x34, 0x03, 0x00, 0x04, 0x00, 0x14, 0x08, 0x3A, 0x00, 0x02, 0x00, 0x20, 0x2C, 0x08
++			};
++			memcpy(_paletteRam, paletteRamBootValues, sizeof(_paletteRam));
++		}
+ 	} else {
+ 		//When not using random ram, use a static state at power on (matches blargg's old palette test rom)
+ 		constexpr uint8_t paletteRamBootValues[0x20] { 
+diff --git a/Core/Shared/EmuSettings.cpp b/Core/Shared/EmuSettings.cpp
+index 13fe7c3f..3eaae647 100644
+--- a/Core/Shared/EmuSettings.cpp
++++ b/Core/Shared/EmuSettings.cpp
+@@ -8,6 +8,7 @@
+ #include "Shared/NotificationManager.h"
+ #include "Utilities/FolderUtilities.h"
+ #include "Utilities/Serializer.h"
++#include "Utilities/VirtualFile.h"
+ 
+ EmuSettings::EmuSettings(Emulator* emu)
+ {
+@@ -515,6 +516,14 @@ void EmuSettings::InitializeRam(RamState state, void* data, uint32_t length)
+ 				}
+ 			}
+ 			break;
++		case RamState::Provided:
++			VirtualFile* file = VirtualFile::VirtualFile(_nes.RamPowerOnStateFilename);
++			if(file && file->IsValid()) {
++				file->ReadFile((uint8_t*)data, length);
++			} else {
++				memset(data, 0, length);
++			}
++			break;
+ 	}
+ }
+ 
+diff --git a/Core/Shared/SettingTypes.h b/Core/Shared/SettingTypes.h
+index 69b78f92..af1decba 100644
+--- a/Core/Shared/SettingTypes.h
++++ b/Core/Shared/SettingTypes.h
+@@ -321,6 +321,7 @@ enum class RamState
+ 	Random = 0,
+ 	AllZeros = 1,
+ 	AllOnes = 2,
++	Provided = 3,
+ };
+ 
+ enum class ConsoleRegion
+@@ -569,7 +570,8 @@ struct NesConfig
+ 
+ 	bool RandomizeMapperPowerOnState = false;
+ 	bool RandomizeCpuPpuAlignment = false;
+-	RamState RamPowerOnState = RamState::Random;
++	RamState RamPowerOnState = RamState::Provided;
++	VirtualFile RamPowerOnStateFilename = const string("nes_ram_power_on_state.bin");
+ 
+ 	uint32_t PpuExtraScanlinesBeforeNmi = 0;
+ 	uint32_t PpuExtraScanlinesAfterNmi = 0;
+-- 
+2.34.1
+

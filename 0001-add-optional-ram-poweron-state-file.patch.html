@@ -1,0 +1,364 @@
+<html>
+  <meta charset=utf-8>
+  <style>
+    .gist{font-size:16px;color:#333;text-align:left;direction:ltr}.gist{--color-canvas-default-transparent:rgba(255,255,255,0);--color-page-header-bg:#f6f8fa;--color-marketing-icon-primary:#218bff;--color-marketing-icon-secondary:#54aeff;--color-diff-blob-addition-num-text:#1F2328;--color-diff-blob-addition-fg:#1F2328;--color-diff-blob-addition-num-bg:#ccffd8;--color-diff-blob-addition-line-bg:#e6ffec;--color-diff-blob-addition-word-bg:#abf2bc;--color-diff-blob-deletion-num-text:#1F2328;--color-diff-blob-deletion-fg:#1F2328;--color-diff-blob-deletion-num-bg:#ffd7d5;--color-diff-blob-deletion-line-bg:#ffebe9;--color-diff-blob-deletion-word-bg:rgba(255,129,130,0.4);--color-diff-blob-hunk-num-bg:rgba(84,174,255,0.4);--color-diff-blob-expander-icon:#656d76;--color-diff-blob-selected-line-highlight-mix-blend-mode:multiply;--color-diffstat-deletion-border:rgba(31,35,40,0.15);--color-diffstat-addition-border:rgba(31,35,40,0.15);--color-diffstat-addition-bg:#1f883d;--color-search-keyword-hl:#fff8c5;--color-prettylights-syntax-comment:#57606a;--color-prettylights-syntax-constant:#0550ae;--color-prettylights-syntax-entity:#6639ba;--color-prettylights-syntax-storage-modifier-import:#24292f;--color-prettylights-syntax-entity-tag:#116329;--color-prettylights-syntax-keyword:#cf222e;--color-prettylights-syntax-string:#0a3069;--color-prettylights-syntax-variable:#953800;--color-prettylights-syntax-brackethighlighter-unmatched:#82071e;--color-prettylights-syntax-invalid-illegal-text:#f6f8fa;--color-prettylights-syntax-invalid-illegal-bg:#82071e;--color-prettylights-syntax-carriage-return-text:#f6f8fa;--color-prettylights-syntax-carriage-return-bg:#cf222e;--color-prettylights-syntax-string-regexp:#116329;--color-prettylights-syntax-markup-list:#3b2300;--color-prettylights-syntax-markup-heading:#0550ae;--color-prettylights-syntax-markup-italic:#24292f;--color-prettylights-syntax-markup-bold:#24292f;--color-prettylights-syntax-markup-deleted-text:#82071e;--color-prettylights-syntax-markup-deleted-bg:#ffebe9;--color-prettylights-syntax-markup-inserted-text:#116329;--color-prettylights-syntax-markup-inserted-bg:#dafbe1;--color-prettylights-syntax-markup-changed-text:#953800;--color-prettylights-syntax-markup-changed-bg:#ffd8b5;--color-prettylights-syntax-markup-ignored-text:#eaeef2;--color-prettylights-syntax-markup-ignored-bg:#0550ae;--color-prettylights-syntax-meta-diff-range:#8250df;--color-prettylights-syntax-brackethighlighter-angle:#57606a;--color-prettylights-syntax-sublimelinter-gutter-mark:#8c959f;--color-prettylights-syntax-constant-other-reference-link:#0a3069;--color-codemirror-text:#1F2328;--color-codemirror-bg:#ffffff;--color-codemirror-gutters-bg:#ffffff;--color-codemirror-guttermarker-text:#ffffff;--color-codemirror-guttermarker-subtle-text:#6e7781;--color-codemirror-linenumber-text:#656d76;--color-codemirror-cursor:#1F2328;--color-codemirror-selection-bg:rgba(84,174,255,0.4);--color-codemirror-activeline-bg:rgba(234,238,242,0.5);--color-codemirror-matchingbracket-text:#1F2328;--color-codemirror-lines-bg:#ffffff;--color-codemirror-syntax-comment:#24292f;--color-codemirror-syntax-constant:#0550ae;--color-codemirror-syntax-entity:#8250df;--color-codemirror-syntax-keyword:#cf222e;--color-codemirror-syntax-storage:#cf222e;--color-codemirror-syntax-string:#0a3069;--color-codemirror-syntax-support:#0550ae;--color-codemirror-syntax-variable:#953800;--color-checks-bg:#24292f;--color-checks-run-border-width:0px;--color-checks-container-border-width:0px;--color-checks-text-primary:#f6f8fa;--color-checks-text-secondary:#8c959f;--color-checks-text-link:#54aeff;--color-checks-btn-icon:#afb8c1;--color-checks-btn-hover-icon:#f6f8fa;--color-checks-btn-hover-bg:rgba(255,255,255,0.125);--color-checks-input-text:#eaeef2;--color-checks-input-placeholder-text:#8c959f;--color-checks-input-focus-text:#8c959f;--color-checks-input-bg:#32383f;--color-checks-input-shadow:none;--color-checks-donut-error:#fa4549;--color-checks-donut-pending:#bf8700;--color-checks-donut-success:#1f883d;--color-checks-donut-neutral:#afb8c1;--color-checks-dropdown-text:#afb8c1;--color-checks-dropdown-bg:#32383f;--color-checks-dropdown-border:#424a53;--color-checks-dropdown-shadow:rgba(31,35,40,0.3);--color-checks-dropdown-hover-text:#f6f8fa;--color-checks-dropdown-hover-bg:#424a53;--color-checks-dropdown-btn-hover-text:#f6f8fa;--color-checks-dropdown-btn-hover-bg:#32383f;--color-checks-scrollbar-thumb-bg:#57606a;--color-checks-header-label-text:#d0d7de;--color-checks-header-label-open-text:#f6f8fa;--color-checks-header-border:#32383f;--color-checks-header-icon:#8c959f;--color-checks-line-text:#d0d7de;--color-checks-line-num-text:rgba(140,149,159,0.75);--color-checks-line-timestamp-text:#8c959f;--color-checks-line-hover-bg:#32383f;--color-checks-line-selected-bg:rgba(33,139,255,0.15);--color-checks-line-selected-num-text:#54aeff;--color-checks-line-dt-fm-text:#24292f;--color-checks-line-dt-fm-bg:#9a6700;--color-checks-gate-bg:rgba(125,78,0,0.15);--color-checks-gate-text:#d0d7de;--color-checks-gate-waiting-text:#d4a72c;--color-checks-step-header-open-bg:#32383f;--color-checks-step-error-text:#ff8182;--color-checks-step-warning-text:#d4a72c;--color-checks-logline-text:#8c959f;--color-checks-logline-num-text:rgba(140,149,159,0.75);--color-checks-logline-debug-text:#c297ff;--color-checks-logline-error-text:#d0d7de;--color-checks-logline-error-num-text:#ff8182;--color-checks-logline-error-bg:rgba(164,14,38,0.15);--color-checks-logline-warning-text:#d0d7de;--color-checks-logline-warning-num-text:#d4a72c;--color-checks-logline-warning-bg:rgba(125,78,0,0.15);--color-checks-logline-command-text:#54aeff;--color-checks-logline-section-text:#4ac26b;--color-checks-ansi-black:#24292f;--color-checks-ansi-black-bright:#32383f;--color-checks-ansi-white:#d0d7de;--color-checks-ansi-white-bright:#d0d7de;--color-checks-ansi-gray:#8c959f;--color-checks-ansi-red:#ff8182;--color-checks-ansi-red-bright:#ffaba8;--color-checks-ansi-green:#4ac26b;--color-checks-ansi-green-bright:#6fdd8b;--color-checks-ansi-yellow:#d4a72c;--color-checks-ansi-yellow-bright:#eac54f;--color-checks-ansi-blue:#54aeff;--color-checks-ansi-blue-bright:#80ccff;--color-checks-ansi-magenta:#c297ff;--color-checks-ansi-magenta-bright:#d8b9ff;--color-checks-ansi-cyan:#76e3ea;--color-checks-ansi-cyan-bright:#b3f0ff;--color-project-header-bg:#24292f;--color-project-sidebar-bg:#ffffff;--color-project-gradient-in:#ffffff;--color-project-gradient-out:rgba(255,255,255,0);--color-mktg-btn-bg:#1b1f23;--color-mktg-btn-shadow-outline:rgb(0 0 0/15%)0 0 0 1px inset;--color-mktg-btn-shadow-focus:rgb(0 0 0/15%)0 0 0 4px;--color-mktg-btn-shadow-hover:0 3px 2px rgba(0,0,0,0.07),0 7px 5px rgba(0,0,0,0.04),0 12px 10px rgba(0,0,0,0.03),0 22px 18px rgba(0,0,0,0.03),0 42px 33px rgba(0,0,0,0.02),0 100px 80px rgba(0,0,0,0.02);--color-mktg-btn-shadow-hover-muted:rgb(0 0 0/70%)0 0 0 2px inset;--color-control-border-color-emphasis:#858F99;--color-avatar-bg:#ffffff;--color-avatar-border:rgba(31,35,40,0.15);--color-avatar-stack-fade:#afb8c1;--color-avatar-stack-fade-more:#d0d7de;--color-avatar-child-shadow:0 0 0 2px rgba(255,255,255,0.8);--color-topic-tag-border:rgba(0,0,0,0);--color-counter-border:rgba(0,0,0,0);--color-select-menu-backdrop-border:rgba(0,0,0,0);--color-select-menu-tap-highlight:rgba(175,184,193,0.5);--color-select-menu-tap-focus-bg:#b6e3ff;--color-overlay-shadow:0 1px 3px rgba(31,35,40,0.12),0 8px 24px rgba(66,74,83,0.12);--color-overlay-backdrop:rgba(140,149,159,0.2);--color-header-text:rgba(255,255,255,0.7);--color-header-bg:#24292f;--color-header-divider:#57606a;--color-header-logo:#ffffff;--color-header-search-bg:#24292f;--color-header-search-border:#57606a;--color-sidenav-selected-bg:#ffffff;--color-menu-bg-active:rgba(0,0,0,0);--color-input-disabled-bg:rgba(175,184,193,0.2);--color-timeline-badge-bg:#eaeef2;--color-ansi-black:#24292f;--color-ansi-black-bright:#57606a;--color-ansi-white:#6e7781;--color-ansi-white-bright:#8c959f;--color-ansi-gray:#6e7781;--color-ansi-red:#cf222e;--color-ansi-red-bright:#a40e26;--color-ansi-green:#116329;--color-ansi-green-bright:#1a7f37;--color-ansi-yellow:#4d2d00;--color-ansi-yellow-bright:#633c01;--color-ansi-blue:#0969da;--color-ansi-blue-bright:#218bff;--color-ansi-magenta:#8250df;--color-ansi-magenta-bright:#a475f9;--color-ansi-cyan:#1b7c83;--color-ansi-cyan-bright:#3192aa;--color-btn-text:#24292f;--color-btn-bg:#f6f8fa;--color-btn-border:rgba(31,35,40,0.15);--color-btn-shadow:0 1px 0 rgba(31,35,40,0.04);--color-btn-inset-shadow:inset 0 1px 0 rgba(255,255,255,0.25);--color-btn-hover-bg:#f3f4f6;--color-btn-hover-border:rgba(31,35,40,0.15);--color-btn-active-bg:hsla(220,14%,93%,1);--color-btn-active-border:rgba(31,35,40,0.15);--color-btn-selected-bg:hsla(220,14%,94%,1);--color-btn-counter-bg:rgba(31,35,40,0.08);--color-btn-primary-text:#ffffff;--color-btn-primary-bg:#1f883d;--color-btn-primary-border:rgba(31,35,40,0.15);--color-btn-primary-shadow:0 1px 0 rgba(31,35,40,0.1);--color-btn-primary-inset-shadow:inset 0 1px 0 rgba(255,255,255,0.03);--color-btn-primary-hover-bg:#1a7f37;--color-btn-primary-hover-border:rgba(31,35,40,0.15);--color-btn-primary-selected-bg:hsla(137,66%,28%,1);--color-btn-primary-selected-shadow:inset 0 1px 0 rgba(0,45,17,0.2);--color-btn-primary-disabled-text:rgba(255,255,255,0.8);--color-btn-primary-disabled-bg:#94d3a2;--color-btn-primary-disabled-border:rgba(31,35,40,0.15);--color-btn-primary-icon:rgba(255,255,255,0.8);--color-btn-primary-counter-bg:rgba(0,45,17,0.2);--color-btn-outline-text:#0969da;--color-btn-outline-hover-text:#ffffff;--color-btn-outline-hover-bg:#0969da;--color-btn-outline-hover-border:rgba(31,35,40,0.15);--color-btn-outline-hover-shadow:0 1px 0 rgba(31,35,40,0.1);--color-btn-outline-hover-inset-shadow:inset 0 1px 0 rgba(255,255,255,0.03);--color-btn-outline-hover-counter-bg:rgba(255,255,255,0.2);--color-btn-outline-selected-text:#ffffff;--color-btn-outline-selected-bg:hsla(212,92%,42%,1);--color-btn-outline-selected-border:rgba(31,35,40,0.15);--color-btn-outline-selected-shadow:inset 0 1px 0 rgba(0,33,85,0.2);--color-btn-outline-disabled-text:rgba(9,105,218,0.5);--color-btn-outline-disabled-bg:#f6f8fa;--color-btn-outline-disabled-counter-bg:rgba(9,105,218,0.05);--color-btn-outline-counter-bg:#0969da1a;--color-btn-outline-counter-fg:#0550ae;--color-btn-outline-hover-counter-fg:#ffffff;--color-btn-outline-disabled-counter-fg:rgba(9,105,218,0.5);--color-btn-danger-text:#cf222e;--color-btn-danger-hover-text:#ffffff;--color-btn-danger-hover-bg:#a40e26;--color-btn-danger-hover-border:rgba(31,35,40,0.15);--color-btn-danger-hover-shadow:0 1px 0 rgba(31,35,40,0.1);--color-btn-danger-hover-inset-shadow:inset 0 1px 0 rgba(255,255,255,0.03);--color-btn-danger-hover-counter-bg:rgba(255,255,255,0.2);--color-btn-danger-selected-text:#ffffff;--color-btn-danger-selected-bg:hsla(356,72%,44%,1);--color-btn-danger-selected-border:rgba(31,35,40,0.15);--color-btn-danger-selected-shadow:inset 0 1px 0 rgba(76,0,20,0.2);--color-btn-danger-disabled-text:rgba(207,34,46,0.5);--color-btn-danger-disabled-bg:#f6f8fa;--color-btn-danger-disabled-counter-bg:rgba(207,34,46,0.05);--color-btn-danger-counter-bg:rgba(207,34,46,0.1);--color-btn-danger-icon:#cf222e;--color-btn-danger-hover-icon:#ffffff;--color-btn-danger-counter-fg:#a40e26;--color-btn-danger-hover-counter-fg:#ffffff;--color-btn-danger-disabled-counter-fg:rgba(207,34,46,0.5);--color-btn-inactive-bg:#eaeef2;--color-btn-inactive-text:#57606a;--color-underlinenav-icon:#6e7781;--color-underlinenav-border-hover:rgba(175,184,193,0.2);--color-action-list-item-inline-divider:rgba(208,215,222,0.48);--color-action-list-item-default-hover-bg:rgba(208,215,222,0.32);--color-action-list-item-default-hover-border:rgba(0,0,0,0);--color-action-list-item-default-active-bg:rgba(208,215,222,0.48);--color-action-list-item-default-active-border:rgba(0,0,0,0);--color-action-list-item-default-selected-bg:rgba(208,215,222,0.24);--color-action-list-item-danger-hover-bg:rgba(255,235,233,0.64);--color-action-list-item-danger-active-bg:#ffebe9;--color-action-list-item-danger-hover-text:#d1242f;--color-switch-track-bg:#eaeef2;--color-switch-track-hover-bg:hsla(210,24%,90%,1);--color-switch-track-active-bg:hsla(210,24%,88%,1);--color-switch-track-disabled-bg:#8c959f;--color-switch-track-fg:#656d76;--color-switch-track-disabled-fg:#ffffff;--color-switch-track-border:rgba(0,0,0,0);--color-switch-track-checked-bg:#0969da;--color-switch-track-checked-hover-bg:#0860CA;--color-switch-track-checked-active-bg:#0757BA;--color-switch-track-checked-fg:#ffffff;--color-switch-track-checked-disabled-fg:#ffffff;--color-switch-track-checked-border:rgba(0,0,0,0);--color-switch-knob-bg:#ffffff;--color-switch-knob-disabled-bg:#f6f8fa;--color-switch-knob-border:#858F99;--color-switch-knob-checked-bg:#ffffff;--color-switch-knob-checked-disabled-bg:#f6f8fa;--color-switch-knob-checked-border:#0969da;--color-segmented-control-bg:#eaeef2;--color-segmented-control-button-bg:#ffffff;--color-segmented-control-button-hover-bg:rgba(175,184,193,0.2);--color-segmented-control-button-active-bg:rgba(175,184,193,0.4);--color-segmented-control-button-selected-border:#8c959f;--color-tree-view-item-chevron-hover-bg:rgba(208,215,222,0.32);--color-tree-view-item-directory-fill:#54aeff;--color-fg-default:#1F2328;--color-fg-muted:#656d76;--color-fg-subtle:#6e7781;--color-fg-on-emphasis:#ffffff;--color-canvas-default:#ffffff;--color-canvas-overlay:#ffffff;--color-canvas-inset:#f6f8fa;--color-canvas-subtle:#f6f8fa;--color-border-default:#d0d7de;--color-border-muted:hsla(210,18%,87%,1);--color-border-subtle:rgba(31,35,40,0.15);--color-shadow-small:0 1px 0 rgba(31,35,40,0.04);--color-shadow-medium:0 3px 6px rgba(140,149,159,0.15);--color-shadow-large:0 8px 24px rgba(140,149,159,0.2);--color-shadow-extra-large:0 12px 28px rgba(140,149,159,0.3);--color-neutral-emphasis-plus:#24292f;--color-neutral-emphasis:#6e7781;--color-neutral-muted:rgba(175,184,193,0.2);--color-neutral-subtle:rgba(234,238,242,0.5);--color-accent-fg:#0969da;--color-accent-emphasis:#0969da;--color-accent-muted:rgba(84,174,255,0.4);--color-accent-subtle:#ddf4ff;--color-success-fg:#1a7f37;--color-success-emphasis:#1f883d;--color-success-muted:rgba(74,194,107,0.4);--color-success-subtle:#dafbe1;--color-attention-fg:#9a6700;--color-attention-emphasis:#9a6700;--color-attention-muted:rgba(212,167,44,0.4);--color-attention-subtle:#fff8c5;--color-severe-fg:#bc4c00;--color-severe-emphasis:#bc4c00;--color-severe-muted:rgba(251,143,68,0.4);--color-severe-subtle:#fff1e5;--color-danger-fg:#d1242f;--color-danger-emphasis:#cf222e;--color-danger-muted:rgba(255,129,130,0.4);--color-danger-subtle:#ffebe9;--color-open-fg:#1a7f37;--color-open-emphasis:#1f883d;--color-open-muted:rgba(74,194,107,0.4);--color-open-subtle:#dafbe1;--color-closed-fg:#d1242f;--color-closed-emphasis:#cf222e;--color-closed-muted:rgba(255,129,130,0.4);--color-closed-subtle:#ffebe9;--color-done-fg:#8250df;--color-done-emphasis:#8250df;--color-done-muted:rgba(194,151,255,0.4);--color-done-subtle:#fbefff;--color-sponsors-fg:#bf3989;--color-sponsors-emphasis:#bf3989;--color-sponsors-muted:rgba(255,128,200,0.4);--color-sponsors-subtle:#ffeff7;--color-primer-fg-disabled:#8c959f;--color-primer-canvas-backdrop:rgba(31,35,40,0.5);--color-primer-canvas-sticky:rgba(255,255,255,0.95);--color-primer-border-active:#fd8c73;--color-primer-border-contrast:rgba(31,35,40,0.1);--color-primer-shadow-highlight:inset 0 1px 0 rgba(255,255,255,0.25);--color-primer-shadow-inset:inset 0 1px 0 rgba(208,215,222,0.2);--color-scale-black:#1F2328;--color-scale-white:#ffffff;--color-scale-gray-0:#f6f8fa;--color-scale-gray-1:#eaeef2;--color-scale-gray-2:#d0d7de;--color-scale-gray-3:#afb8c1;--color-scale-gray-4:#8c959f;--color-scale-gray-5:#6e7781;--color-scale-gray-6:#57606a;--color-scale-gray-7:#424a53;--color-scale-gray-8:#32383f;--color-scale-gray-9:#24292f;--color-scale-blue-0:#ddf4ff;--color-scale-blue-1:#b6e3ff;--color-scale-blue-2:#80ccff;--color-scale-blue-3:#54aeff;--color-scale-blue-4:#218bff;--color-scale-blue-5:#0969da;--color-scale-blue-6:#0550ae;--color-scale-blue-7:#033d8b;--color-scale-blue-8:#0a3069;--color-scale-blue-9:#002155;--color-scale-green-0:#dafbe1;--color-scale-green-1:#aceebb;--color-scale-green-2:#6fdd8b;--color-scale-green-3:#4ac26b;--color-scale-green-4:#2da44e;--color-scale-green-5:#1a7f37;--color-scale-green-6:#116329;--color-scale-green-7:#044f1e;--color-scale-green-8:#003d16;--color-scale-green-9:#002d11;--color-scale-yellow-0:#fff8c5;--color-scale-yellow-1:#fae17d;--color-scale-yellow-2:#eac54f;--color-scale-yellow-3:#d4a72c;--color-scale-yellow-4:#bf8700;--color-scale-yellow-5:#9a6700;--color-scale-yellow-6:#7d4e00;--color-scale-yellow-7:#633c01;--color-scale-yellow-8:#4d2d00;--color-scale-yellow-9:#3b2300;--color-scale-orange-0:#fff1e5;--color-scale-orange-1:#ffd8b5;--color-scale-orange-2:#ffb77c;--color-scale-orange-3:#fb8f44;--color-scale-orange-4:#e16f24;--color-scale-orange-5:#bc4c00;--color-scale-orange-6:#953800;--color-scale-orange-7:#762c00;--color-scale-orange-8:#5c2200;--color-scale-orange-9:#471700;--color-scale-red-0:#ffebe9;--color-scale-red-1:#ffcecb;--color-scale-red-2:#ffaba8;--color-scale-red-3:#ff8182;--color-scale-red-4:#fa4549;--color-scale-red-5:#cf222e;--color-scale-red-6:#a40e26;--color-scale-red-7:#82071e;--color-scale-red-8:#660018;--color-scale-red-9:#4c0014;--color-scale-purple-0:#fbefff;--color-scale-purple-1:#ecd8ff;--color-scale-purple-2:#d8b9ff;--color-scale-purple-3:#c297ff;--color-scale-purple-4:#a475f9;--color-scale-purple-5:#8250df;--color-scale-purple-6:#6639ba;--color-scale-purple-7:#512a97;--color-scale-purple-8:#3e1f79;--color-scale-purple-9:#2e1461;--color-scale-pink-0:#ffeff7;--color-scale-pink-1:#ffd3eb;--color-scale-pink-2:#ffadda;--color-scale-pink-3:#ff80c8;--color-scale-pink-4:#e85aad;--color-scale-pink-5:#bf3989;--color-scale-pink-6:#99286e;--color-scale-pink-7:#772057;--color-scale-pink-8:#611347;--color-scale-pink-9:#4d0336;--color-scale-coral-0:#fff0eb;--color-scale-coral-1:#ffd6cc;--color-scale-coral-2:#ffb4a1;--color-scale-coral-3:#fd8c73;--color-scale-coral-4:#ec6547;--color-scale-coral-5:#c4432b;--color-scale-coral-6:#9e2f1c;--color-scale-coral-7:#801f0f;--color-scale-coral-8:#691105;--color-scale-coral-9:#510901}.gist .pl-c1{color:#005cc5}.gist .pl-ms{font-weight:bold;color:#005cc5}.gist .pl-md{color:#b31d28;background-color:#ffeef0}.gist .pl-mi1{color:#22863a;background-color:#f0fff4}.gist .pl-mdr{font-weight:bold;color:#6f42c1}.gist .blob-num{position:relative;width:1%;padding-right:10px;padding-left:10px;font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;font-size:11px;line-height:14px;color:var(--fgColor-muted,var(--color-fg-subtle));text-align:right;white-space:nowrap;vertical-align:top;cursor:pointer;-webkit-user-select:none;user-select:none}.gist .blob-num:hover{color:var(--fgColor-default,var(--color-fg-default))}.gist .blob-num::before{content:attr(data-line-number)}.gist .blob-code{position:relative;padding-right:10px;padding-left:10px;line-height:14px;vertical-align:top}.gist .blob-code-inner{display:table-cell;overflow:visible;font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;font-size:11px;color:var(--fgColor-default,var(--color-fg-default));word-wrap:anywhere;white-space:pre}.gist .blob-code-inner::selection,.gist .blob-code-inner *::selection{background-color:var(--selection-bgColor,var(--color-accent-muted))}@media (max-width:1280px){}@media (min-width:1280px){}.gist .highlight{padding:0;margin:0;font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;font-size:11px;font-weight:var(--base-text-weight-normal,400);line-height:1.4;color:#333;background:var(--bgColor-default,var(--color-canvas-default));border:0}.gist .blob-num{min-width:inherit;padding:1px 10px!important;background:rgba(0,0,0,0)}.gist .blob-code{padding:1px 10px!important;text-align:left;background:rgba(0,0,0,0);border:0}.gist .blob-code-inner::selection,.gist .blob-code-inner *::selection{background-color:var(--selection-bgColor,#c8e1ff)}
+  </style>
+  <meta name=referrer content=no-referrer>
+  <link type=image/x-icon rel="shortcut icon" href="data:image/x-icon;base64,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AAAAAAAAKysrBhYWGUcWFhiVFRUYvxUVGNkWFhfzFhYX8xUVGNkVFRi/FhYYlRYWGUcrKysGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=">
+  <meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
+  <style>img[src="data:,"],source[src="data:,"]{display:none!important}
+  </style>
+  <body>
+    <div class=gist>
+      <div class="js-check-bidi js-blob-code-container blob-code-content">
+        <table data-hpc class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file" data-tab-size=2 data-paste-markdown-skip data-tagsearch-lang=Diff data-tagsearch-path=0001-add-optional-ram-poweron-state-file.patch>
+          <tbody><tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L1 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=1></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC1 class="blob-code blob-code-inner js-file-line">From 7307bec5719adf03f2e6c371ec3ba36e8db202d4 Mon Sep 17 00:00:00 2001</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L2 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=2></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC2 class="blob-code blob-code-inner js-file-line">From: Ben Holley &lt;benolee@gmail.com&gt;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L3 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=3></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC3 class="blob-code blob-code-inner js-file-line">Date: Tue, 5 Mar 2024 12:12:03 -0600</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L4 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=4></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC4 class="blob-code blob-code-inner js-file-line">Subject: [PATCH] add optional ram poweron state file</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L5 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=5></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC5 class="blob-code blob-code-inner js-file-line">
+              </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L6 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=6></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC6 class="blob-code blob-code-inner js-file-line"><span class=pl-ms>---</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L7 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=7></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC7 class="blob-code blob-code-inner js-file-line"> Core/NES/NesPpu.cpp         | 12 ++++++++++++</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L8 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=8></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC8 class="blob-code blob-code-inner js-file-line"> Core/Shared/EmuSettings.cpp |  9 +++++++++</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L9 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=9></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC9 class="blob-code blob-code-inner js-file-line"> Core/Shared/SettingTypes.h  |  4 +++-</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L10 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=10></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC10 class="blob-code blob-code-inner js-file-line"> 3 files changed, 24 insertions(+), 1 deletion(-)</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L11 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=11></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC11 class="blob-code blob-code-inner js-file-line">
+              </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L12 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=12></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC12 class="blob-code blob-code-inner js-file-line"><span class=pl-c1>diff --git a/Core/NES/NesPpu.cpp b/Core/NES/NesPpu.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L13 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=13></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC13 class="blob-code blob-code-inner js-file-line">index 507e47b9..3534a474 100644</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L14 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=14></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC14 class="blob-code blob-code-inner js-file-line"><span class=pl-md>--- a/Core/NES/NesPpu.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L15 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=15></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC15 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1>+++ b/Core/NES/NesPpu.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L16 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=16></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC16 class="blob-code blob-code-inner js-file-line"><span class=pl-mdr>@@ -48,6 +48,18 @@</span> template&lt;class T&gt; NesPpu&lt;T&gt;::NesPpu(NesConsole* console)</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L17 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=17></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC17 class="blob-code blob-code-inner js-file-line"> 		for(int i = 0; i &lt; 0x20; i++) {</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L18 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=18></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC18 class="blob-code blob-code-inner js-file-line"> 			_paletteRam[i] &amp;= 0x3F;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L19 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=19></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC19 class="blob-code blob-code-inner js-file-line"> 		}</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L20 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=20></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC20 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>	} else if (_emu-&gt;GetSettings()-&gt;GetNesConfig().RamPowerOnState == RamState::Provided) {</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L21 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=21></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC21 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>		VirtualFile file = VirtualFile::VirtualFile(_emu-&gt;GetSettings()-&gt;GetNesConfig().RamPowerOnStateFilename);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L22 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=22></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC22 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>		if(file.IsValid()) {</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L23 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=23></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC23 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			_console-&gt;InitializeRam(_paletteRam, 0x20);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L24 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=24></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC24 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			file.Read(_paletteRam, 0x20);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L25 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=25></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC25 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>		} else {</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L26 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=26></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC26 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			constexpr uint8_t paletteRamBootValues[0x20] { </span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L27 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=27></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC27 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>				0x09, 0x01, 0x00, 0x01, 0x00, 0x02, 0x02, 0x0D, 0x08, 0x10, 0x08, 0x24, 0x00, 0x00, 0x04, 0x2C,</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L28 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=28></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC28 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>				0x09, 0x01, 0x34, 0x03, 0x00, 0x04, 0x00, 0x14, 0x08, 0x3A, 0x00, 0x02, 0x00, 0x20, 0x2C, 0x08</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L29 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=29></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC29 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			};</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L30 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=30></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC30 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			memcpy(_paletteRam, paletteRamBootValues, sizeof(_paletteRam));</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L31 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=31></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC31 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>		}</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L32 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=32></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC32 class="blob-code blob-code-inner js-file-line"> 	} else {</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L33 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=33></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC33 class="blob-code blob-code-inner js-file-line"> 		//When not using random ram, use a static state at power on (matches blargg's old palette test rom)</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L34 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=34></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC34 class="blob-code blob-code-inner js-file-line"> 		constexpr uint8_t paletteRamBootValues[0x20] { </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L35 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=35></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC35 class="blob-code blob-code-inner js-file-line"><span class=pl-c1>diff --git a/Core/Shared/EmuSettings.cpp b/Core/Shared/EmuSettings.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L36 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=36></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC36 class="blob-code blob-code-inner js-file-line">index 13fe7c3f..3eaae647 100644</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L37 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=37></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC37 class="blob-code blob-code-inner js-file-line"><span class=pl-md>--- a/Core/Shared/EmuSettings.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L38 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=38></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC38 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1>+++ b/Core/Shared/EmuSettings.cpp</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L39 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=39></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC39 class="blob-code blob-code-inner js-file-line"><span class=pl-mdr>@@ -8,6 +8,7 @@</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L40 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=40></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC40 class="blob-code blob-code-inner js-file-line"> #include "Shared/NotificationManager.h"</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L41 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=41></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC41 class="blob-code blob-code-inner js-file-line"> #include "Utilities/FolderUtilities.h"</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L42 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=42></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC42 class="blob-code blob-code-inner js-file-line"> #include "Utilities/Serializer.h"</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L43 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=43></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC43 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>#include "Utilities/VirtualFile.h"</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L44 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=44></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC44 class="blob-code blob-code-inner js-file-line"> </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L45 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=45></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC45 class="blob-code blob-code-inner js-file-line"> EmuSettings::EmuSettings(Emulator* emu)</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L46 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=46></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC46 class="blob-code blob-code-inner js-file-line"> {</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L47 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=47></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC47 class="blob-code blob-code-inner js-file-line"><span class=pl-mdr>@@ -515,6 +516,14 @@</span> void EmuSettings::InitializeRam(RamState state, void* data, uint32_t length)</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L48 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=48></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC48 class="blob-code blob-code-inner js-file-line"> 				}</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L49 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=49></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC49 class="blob-code blob-code-inner js-file-line"> 			}</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L50 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=50></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC50 class="blob-code blob-code-inner js-file-line"> 			break;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L51 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=51></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC51 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>		case RamState::Provided:</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L52 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=52></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC52 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			VirtualFile* file = VirtualFile::VirtualFile(_nes.RamPowerOnStateFilename);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L53 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=53></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC53 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			if(file &amp;&amp; file-&gt;IsValid()) {</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L54 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=54></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC54 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>				file-&gt;ReadFile((uint8_t*)data, length);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L55 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=55></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC55 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			} else {</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L56 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=56></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC56 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>				memset(data, 0, length);</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L57 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=57></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC57 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			}</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L58 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=58></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC58 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>			break;</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L59 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=59></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC59 class="blob-code blob-code-inner js-file-line"> 	}</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L60 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=60></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC60 class="blob-code blob-code-inner js-file-line"> }</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L61 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=61></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC61 class="blob-code blob-code-inner js-file-line"> </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L62 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=62></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC62 class="blob-code blob-code-inner js-file-line"><span class=pl-c1>diff --git a/Core/Shared/SettingTypes.h b/Core/Shared/SettingTypes.h</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L63 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=63></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC63 class="blob-code blob-code-inner js-file-line">index 69b78f92..af1decba 100644</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L64 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=64></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC64 class="blob-code blob-code-inner js-file-line"><span class=pl-md>--- a/Core/Shared/SettingTypes.h</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L65 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=65></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC65 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1>+++ b/Core/Shared/SettingTypes.h</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L66 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=66></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC66 class="blob-code blob-code-inner js-file-line"><span class=pl-mdr>@@ -321,6 +321,7 @@</span> enum class RamState</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L67 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=67></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC67 class="blob-code blob-code-inner js-file-line"> 	Random = 0,</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L68 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=68></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC68 class="blob-code blob-code-inner js-file-line"> 	AllZeros = 1,</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L69 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=69></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC69 class="blob-code blob-code-inner js-file-line"> 	AllOnes = 2,</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L70 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=70></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC70 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>	Provided = 3,</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L71 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=71></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC71 class="blob-code blob-code-inner js-file-line"> };</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L72 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=72></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC72 class="blob-code blob-code-inner js-file-line"> </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L73 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=73></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC73 class="blob-code blob-code-inner js-file-line"> enum class ConsoleRegion</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L74 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=74></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC74 class="blob-code blob-code-inner js-file-line"><span class=pl-mdr>@@ -569,7 +570,8 @@</span> struct NesConfig</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L75 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=75></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC75 class="blob-code blob-code-inner js-file-line"> </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L76 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=76></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC76 class="blob-code blob-code-inner js-file-line"> 	bool RandomizeMapperPowerOnState = false;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L77 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=77></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC77 class="blob-code blob-code-inner js-file-line"> 	bool RandomizeCpuPpuAlignment = false;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L78 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=78></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC78 class="blob-code blob-code-inner js-file-line"><span class=pl-md><span class=pl-md>-</span>	RamState RamPowerOnState = RamState::Random;</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L79 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=79></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC79 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>	RamState RamPowerOnState = RamState::Provided;</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L80 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=80></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC80 class="blob-code blob-code-inner js-file-line"><span class=pl-mi1><span class=pl-mi1>+</span>	VirtualFile RamPowerOnStateFilename = const string("nes_ram_power_on_state.bin");</span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L81 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=81></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC81 class="blob-code blob-code-inner js-file-line"> </td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L82 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=82></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC82 class="blob-code blob-code-inner js-file-line"> 	uint32_t PpuExtraScanlinesBeforeNmi = 0;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L83 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=83></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC83 class="blob-code blob-code-inner js-file-line"> 	uint32_t PpuExtraScanlinesAfterNmi = 0;</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L84 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=84></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC84 class="blob-code blob-code-inner js-file-line"><span class=pl-md><span class=pl-md>-</span>- </span></td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L85 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=85></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC85 class="blob-code blob-code-inner js-file-line">2.34.1</td>
+            </tr>
+            <tr>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-L86 class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number=86></td>
+              <td id=file-0001-add-optional-ram-poweron-state-file-patch-LC86 class="blob-code blob-code-inner js-file-line">
+              </td>
+            </tr>
+        </table>
+  </div>
+</div>
